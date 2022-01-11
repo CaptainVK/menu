@@ -1,4 +1,5 @@
-const menu = [{
+const menu = [
+     {
         id: 1,
         title: "spiced coffe",
         category: "Coffee",
@@ -101,12 +102,6 @@ filterBtn.forEach(function (btn) {
     })
 
 })
-
-
-
-
-
-
 
 function displayMenuItems(menuItems) {
     let displayMenu = menuItems.map(function (item) {
