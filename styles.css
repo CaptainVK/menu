@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {padding: 0;margin: 0;border: 0;box-sizing: border-box;}
+a:focus,a:active{outline:none;}
+a{text-decoration: none;}
+html,body{height:100%;}
+html:focus-within {scroll-behavior: smooth;}
+body {line-height: 1;}
+img {  max-width: 100%; display:block;outline: none;}
+ol, ul {  list-style: none;}
+button{cursor:pointer;}
+/* responsive font-size     font-size: calc(1.5rem + .25vw); */
+
+:root{
+    --ff-main: font-family: 'Cairo', sans-serif;
+    --main-color: rgb(97, 48, 14);
+}
+h1,h2,h3,h4,p{
+    font-family: var(--ff-main);
+    color:var(--main-color);
+}
+body{
+    background-color: rgb(231, 215, 191);
+}
+.our-menu{
+    min-width: 365px;
+    width:75%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    
+}
+.underline{
+    width:60px;
+    height:3px;
+    border:1px solid var(--main-color);
+    border-radius: 5px;
+    margin:0.7rem auto;
+    background-color: var(--main-color);
+}
+.btn-container{
+    width:100%;
+    margin:2rem auto;
+    height: 50px;   
+    padding: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+.filter-btn{
+    border:1px solid var(--main-color);
+    border-radius: 5px;
+    padding:5px 8px;
+    color:var(--main-color);
+    font-family: var(--ff-main);
+    margin:0 1rem;
+    font-size: 1.1rem;
+   }
+   .filter-btn:hover{
+       color: rgb(231, 215, 191);;
+       background-color: var(--main-color);
+   }
+@media(max-width: 966px){
+
+    .btn-container{
+        justify-content: space-evenly;
+        
+    }
+    .filter-btn{
+        margin:0 0.4rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    
+
+    }
+
+    @media(max-width: 555px){
+        .btn-container{
+            justify-content: stretch;
+        }
+        .filter-btn{
+            margin:0 0.5rem;
+            padding: 2px 4px;
+            font-size: 1.2rem;
+        }
+    }
+
+.section_main{
+    display:flex;
+    flex-direction: row;
+    gap:3rem;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+
+
+
+.menu-item{
+    width:45%;
+    margin-top:-1rem;
+}
+    
+.menu-item img{
+        border-radius: 5px;
+}
+.menu-item img:hover{
+    opacity: 0.8;
+}
+    .item-info header{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin:1rem ;
+        padding: 1rem;
+        border-bottom: 2px solid var(--main-color);
+    }
+
+ .item-info header h4{
+     text-transform: capitalize;
+     
+ }
+ @media(max-width: 745px){
+    .menu-item{
+        width:100%;
+       
+    }
+}
+ 
