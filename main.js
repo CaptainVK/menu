@@ -17,7 +17,7 @@ const menu = [{
     {
         id: 3,
         title: "turkish coffe",
-        category: "Cofee",
+        category: "Coffee",
         price: 14,
         img: "./img/coffee_3.jpg",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iure deleniti obcaecati voluptates exercitationem quo ipsa voluptate quisquam!"
@@ -63,50 +63,18 @@ const menu = [{
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iure deleniti obcaecati voluptates exercitationem quo ipsa voluptate quisquam!"
     }
 
-]
-const main = document.querySelector('.section_main');
-main.classList.add('.section_main')
 
-const filterBtn = document.querySelectorAll('.filter-btn')
+];
+
+const main = document.querySelector('.section_main');
+const container = document.querySelector('.btn-container')
 
 
 // load items from const menu 
 window.addEventListener('DOMContentLoaded', () => {
     displayMenuItems(menu);
-    const categories = menu.reduce(function (values, item) {
-        if (!values.includes(item.category)) {
-            values.push(item.category);
-        }
-        return values
-    }, ['all']);
-
-
+    displayMenuBtns();
 });
-
-// filter items
-
-filterBtn.forEach(function (btn) {
-    btn.addEventListener('click', (e) => {
-        const category = e.currentTarget.dataset.id;
-        const menuCategory = menu.filter(function (menuItem) {
-            if (menuItem.category == category) {
-                return menuItem;
-            }
-        });
-        if (category == 'all') {
-            return displayMenuItems(menu);
-        } else {
-            displayMenuItems(menuCategory);
-        }
-    })
-
-})
-
-
-
-
-
-
 
 function displayMenuItems(menuItems) {
     let displayMenu = menuItems.map(function (item) {
@@ -122,11 +90,49 @@ function displayMenuItems(menuItems) {
             </p>
         </div>
 
-        <div class="underline_main"></div>
-    </article>`;
+        </article>`;
 
     });
     displayMenu = displayMenu.join("");
     main.innerHTML = displayMenu;
 
 };
+
+function displayMenuBtns() {
+    const categories = menu.reduce(function (values, item) {
+        if (!values.includes(item.category)) {
+            values.push(item.category);
+        }
+        return values
+    }, ['all']);
+    const categoryBtns = categories.map(function (category) {
+        return `<button class = "filter-btn"
+        type = "button"
+        data-id = ${category}> ${category}</button>`;
+
+    }).join("");
+    container.innerHTML = categoryBtns;
+    const filterBtn = document.querySelectorAll('.filter-btn')
+
+    // filter items
+
+    filterBtn.forEach(function (btn) {
+        btn.addEventListener('click', (e) => {
+            const category = e.currentTarget.dataset.id;
+            const menuCategory = menu.filter(function (menuItem) {
+                if (menuItem.category == category) {
+                    return menuItem;
+                }
+            });
+            if (category == 'all') {
+                return displayMenuItems(menu);
+            } else {
+                displayMenuItems(menuCategory);
+            }
+        });
+
+    });
+
+
+
+}
